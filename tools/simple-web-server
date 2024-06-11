@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+import http.server
+import socketserver
+
+def simpleserver():
+    port = 8080
+    handler = http.server.SimpleHTTPRequestHandler
+    
+    with socketserver.TCPServer(("", port), handler) as httpd:
+        print("serving at port", port)
+        httpd.serve_forever()
+
+def main():
+    simpleserver()
+    
+if __name__ == "__main__":
+    main()
+    
+    
