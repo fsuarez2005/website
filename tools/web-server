@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import os
+import sys
+
+
+DEFAULTFILES=[
+    'index.html',
+    'index.htm'
+]
+
+
+ENCODING = "UTF-8"
+TESTHTML = """
+<html>
+<head>
+<title>Test Page</title>
+</head>
+<body>
+<h1>Test Page</h1>
+This is a test page.
+
+
+
+</body>
+</html>
+"""
+
+def requestHandlerToString(rh):
+    output =  f"{rh.client_address}\n"
+    output += f"{rh.command}\n"
+    output += f"{rh.path}\n"
+    output += f"{rh.headers}\n"
+    
+    return output
+
+
+
+
+
+class ReqHandler(BaseHTTPRequestHandler):
+    
+    def __init__(self,request, client_address, server):
+        super().__init__(request, client_address, server)
+
+    def do_GET(self):
+        # check for existence
+        print(os.curdir)__sadf
+        
+        
+        
+        self.send_response(200)
+        self.end_headers()
+        
+        self.wfile.write(bytes(requestHandlerToString(self),encoding=ENCODING))
+        
+        
+        
+    def do_HEAD(self):
+        print("##### HEAD #####")
+        self.send_response()
+        self.end_headers()
+
+
+
+
+
+class WebServer:
+    
+    
+    count = 0
+    def __init__(self,port=8080,hostname=''):
+        self.port = port
+        self.hostname = hostname
+    
+    
+    
+    def run(self,server_class=HTTPServer, handler_class=ReqHandler):
+        server_address = (self.hostname, self.port)
+        
+        print(f"Listening on {server_address}...")
+        httpd = server_class(server_address, handler_class)
+        httpd.serve_forever()
+
+def main():
+    w = WebServer()
+    w.run()
+
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
