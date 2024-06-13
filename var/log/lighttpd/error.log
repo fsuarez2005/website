@@ -1,0 +1,24 @@
+2024-06-13 11:05:54: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 12:45:29: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 12:45:43: (server.c.1230) [note] graceful shutdown started
+2024-06-13 12:45:43: (server.c.2350) server stopped by UID = 501 PID = 34497
+2024-06-13 12:46:33: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 12:48:27: (server.c.2350) server stopped by UID = 501 PID = 35147
+2024-06-13 14:03:43: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 14:04:08: (server.c.1230) [note] graceful shutdown started
+2024-06-13 14:04:08: (server.c.2350) server stopped by UID = 501 PID = 34497
+2024-06-13 14:05:01: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 14:05:17: (mod_cgi.c.990) fork/spawn /usr/bin/python: Undefined error: 0
+2024-06-13 14:05:36: (server.c.1230) [note] graceful shutdown started
+2024-06-13 14:05:36: (server.c.2350) server stopped by UID = 501 PID = 34497
+2024-06-13 14:09:25: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 14:10:02: (mod_cgi.c.990) fork/spawn /usr/bin/python: Resource temporarily unavailable
+2024-06-13 14:10:14: (mod_cgi.c.990) fork/spawn /usr/bin/python: Resource temporarily unavailable
+2024-06-13 14:13:22: (mod_cgi.c.990) fork/spawn /usr/bin/python: Resource temporarily unavailable
+2024-06-13 14:13:24: (mod_cgi.c.990) fork/spawn /usr/bin/python: Resource temporarily unavailable
+2024-06-13 14:13:26: (mod_cgi.c.990) fork/spawn /usr/bin/python: Resource temporarily unavailable
+2024-06-13 14:15:55: (server.c.1230) [note] graceful shutdown started
+2024-06-13 14:15:55: (server.c.2350) server stopped by UID = 501 PID = 34497
+2024-06-13 14:15:55: (server.c.1939) server started (lighttpd/1.4.76)
+2024-06-13 14:19:46: (server.c.1230) [note] graceful shutdown started
+2024-06-13 14:19:46: (server.c.2350) server stopped by UID = 501 PID = 34497
