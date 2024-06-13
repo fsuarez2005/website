@@ -5,6 +5,7 @@ import os
 import sys
 
 
+
 DEFAULTFILES=[
     'index.html',
     'index.htm'
@@ -12,20 +13,11 @@ DEFAULTFILES=[
 
 
 ENCODING = "UTF-8"
-TESTHTML = """
-<html>
-<head>
-<title>Test Page</title>
-</head>
-<body>
-<h1>Test Page</h1>
-This is a test page.
 
-
-
-</body>
-</html>
-"""
+def getFileExtension(filename):
+    # get last part, splitting on .
+    # TODO: should use library function
+    return (filename.split('.')[-1])
 
 def requestHandlerToString(rh):
     output =  f"{rh.client_address}\n"
@@ -37,17 +29,28 @@ def requestHandlerToString(rh):
 
 
 
-
+class FileTypeHandler:
+    def __init__(self,fileext=None,callback=None):
+        self.fileext = fileext
+        self.callback = callback
 
 class ReqHandler(BaseHTTPRequestHandler):
+    # extHandlers = {}
+    
+    
     
     def __init__(self,request, client_address, server):
         super().__init__(request, client_address, server)
+        
+        self.extHandlers = {}
+        
+        # register handlers
+        self.extHandlers['html'] = FileTypeHandler(fileext='html',callback=lambda request, client_address, server: print("hi"))
+        
 
     def do_GET(self):
         # check for existence
-        print(os.curdir)__sadf
-        
+        print(self.path)
         
         
         self.send_response(200)
@@ -67,9 +70,6 @@ class ReqHandler(BaseHTTPRequestHandler):
 
 
 class WebServer:
-    
-    
-    count = 0
     def __init__(self,port=8080,hostname=''):
         self.port = port
         self.hostname = hostname
@@ -77,15 +77,16 @@ class WebServer:
     
     
     def run(self,server_class=HTTPServer, handler_class=ReqHandler):
-        server_address = (self.hostname, self.port)
-        
         print(f"Listening on {server_address}...")
+        
+        server_address = (self.hostname, self.port)
         httpd = server_class(server_address, handler_class)
         httpd.serve_forever()
 
 def main():
     w = WebServer()
     w.run()
+
 
 if __name__ == '__main__':
     main()
